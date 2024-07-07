@@ -1,0 +1,14 @@
+version: '3.8' # specify docker-compose version
+
+services:
+  fastapi-app: # service name
+    image: fast-api-fastapi-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - KUBECONFIG=/root/.kube/config
+    volumes:
+      - C:/Users/hp/.kube/config:/root/.kube/config

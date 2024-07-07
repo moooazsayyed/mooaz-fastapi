@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+kubernetes
+prometheus_client
+requests
+flask
+Jinja2
+py-grpc-prometheus
