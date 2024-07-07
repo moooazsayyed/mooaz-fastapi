@@ -51,7 +51,7 @@ async def create_deployment(deployment_name: str):
                     containers=[
                         client.V1Container(
                             name=deployment_name,
-                            image="flask-app",  # You can change this to any image you prefer
+                            image="mooaz/hello-flask:latest",  # You can change this to any image you prefer
                             ports=[client.V1ContainerPort(container_port=80)]
                         )
                     ]
@@ -73,23 +73,25 @@ async def create_deployment(deployment_name: str):
 @app.get("/getPromdetails")
 async def get_prom_details():
     # Get all pods
-    pods = k8s_core_v1.list_pod_for_all_namespaces().items
-    running_pods = [pod for pod in pods if pod.status.phase == 'Running']
-    
-    # Update Prometheus gauge
-    pod_gauge.set(len(running_pods))
-
-    # Fetch metrics from Prometheus
     try:
-        prometheus_url = 'http://localhost:3001/api/v1/query'
-        response = requests.get(prometheus_url, params={'query': 'running_pods'})
+        pods = k8s_core_v1.list_pod_for_all_namespaces().items
+        running_pods = [pod for pod in pods if pod.status.phase == 'Running']
+    
+        # Update Prometheus gauge
+        pod_gauge.set(len(running_pods))
+
+        # Fetch metrics from Prometheus
+        prometheus_url = 'http://prometheus-service.default.svc.cluster.local:9090/api/v1/query'
+        response = requests.get(prometheus_url, params={'query': 'up'})
         response.raise_for_status()
         prom_data = response.json()
-        
+
         return {
             "running_pods_count": len(running_pods),
             "prometheus_data": prom_data
         }
+    except client.ApiException as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching Kubernetes data: {str(e)}")
     except requests.RequestException as e:
         raise HTTPException(status_code=500, detail=f"Error fetching Prometheus data: {str(e)}")
 
