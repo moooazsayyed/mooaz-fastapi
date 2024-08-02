@@ -106,7 +106,15 @@ View Metrics:
 ```
 Access the Prometheus dashboard to view metrics and set up alerts as needed.
 
-Contributing
+**Deployment**
+The FastAPI application is deployed on a Kubernetes pod, enabling scalable and reliable operations within the cluster. This setup allows the application to leverage Kubernetes' robust orchestration and management capabilities for seamless deployment and scaling.
+
+**RBAC Implementation**
+Role-Based Access Control (RBAC) is implemented to manage permissions and ensure secure access to the application's resources. RBAC allows for fine-grained control over who can perform actions within the Kubernetes cluster, enhancing security and compliance.
+
+
+
+**Contributing**
 We welcome contributions! Please follow these steps:
 
 **Fork the repository.**
