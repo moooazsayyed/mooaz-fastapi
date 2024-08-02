@@ -45,6 +45,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 Install dependencies:
+
 ```
 pip install -r requirements.txt
 ```
@@ -53,10 +54,9 @@ Configure Kubernetes access:
 Ensure you have access to your Kubernetes cluster and that your kubeconfig file is set up correctly.
 
 Run the application:
-
-bash
-Copy code
+```
 uvicorn main:app --reload
+```
 Usage
 Once the application is running, you can interact with it using HTTP requests or via the provided API documentation at /docs.
 
@@ -115,5 +115,4 @@ Implement your changes and write tests if applicable.
 Submit a pull request with a detailed description of your changes.
 **License**
 This project is licensed under the MIT License. See the LICENSE file for more details.
-
 
