@@ -1,8 +1,7 @@
-# mooaz-fastapi 
-FastAPI Kubernetes Deployment Manager
+# FastAPI Kubernetes Deployment Manager
 This project is a FastAPI application designed to automate the deployment of Docker images on a Kubernetes cluster. It provides functionalities to deploy images, monitor the number of running pods, and integrate with Prometheus for robust metrics collection.
 
-Table of Contents
+**Table of Contents**
 **Features
 Architecture
 Installation
@@ -12,16 +11,18 @@ Monitoring with Prometheus
 Contributing
 License
 Features**
-Deployment Management: Automate the deployment of Docker images to a Kubernetes cluster using the Kubernetes client.
-Pod Monitoring: Retrieve and display the number of running pods in the cluster.
-Prometheus Integration: Collect and expose metrics for enhanced observability and performance analysis.
-RESTful API: Utilize GET and POST requests for deployment management and monitoring.
-Architecture
+
+**Deployment Management**: Automate the deployment of Docker images to a Kubernetes cluster using the Kubernetes client.
+**Pod Monitoring**: Retrieve and display the number of running pods in the cluster.
+**Prometheus Integration**: Collect and expose metrics for enhanced observability and performance analysis.
+**RESTful API**: Utilize GET and POST requests for deployment management and monitoring.
+
+**Architecture**
 The application is built using:
 
-FastAPI: A modern, fast (high-performance) web framework for building APIs with Python 3.6+.
-Kubernetes Client: A Python client library for interacting with Kubernetes clusters.
-Prometheus: A monitoring and alerting toolkit for collecting and analyzing metrics.
+**FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python 3.6+.
+**Kubernetes Client**: A Python client library for interacting with Kubernetes clusters.
+**Prometheus**: A monitoring and alerting toolkit for collecting and analyzing metrics.
 
 Installation
 To set up the FastAPI Kubernetes Deployment Manager, follow these steps:
@@ -31,7 +32,7 @@ Python 3.6+
 Docker
 Kubernetes Cluster
 Prometheus
-Setup
+
 Clone the repository:
 
 ```
